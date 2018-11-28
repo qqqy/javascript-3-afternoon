@@ -63,7 +63,6 @@ function employeeUpdater(){
     console.log(employees[i])
   }
   console.log(employees)
-  // employees.forEach(val => console.log(val))
   console.clear()
   return employees
 }
@@ -89,6 +88,18 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
+function removeDuplicates(){
+  for(let i=workplaceAccidents.length-1;i>=0;i--){
+    for(let j=workplaceAccidents.length-1;j>=0;j--){
+      if(workplaceAccidents[i] === workplaceAccidents[j] && i !== j){
+        workplaceAccidents.splice(i,1)
+      }
+    }
+
+  }
+  return workplaceAccidents
+}
+
 // function removeDuplicates(){
 //   let test = []
 //   for(let i=0;i<workplaceAccidents.length;i++){
@@ -106,21 +117,21 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 //   return workplaceAccidents
 // }
 
-function removeDuplicates(){
-  for(let i=workplaceAccidents.length - 1;i >= 0;i--){
-    console.log(`Iteration ${i}, ${workplaceAccidents.length - 1} iterations remaining` )
-    console.log(workplaceAccidents[i])
-    for(let l=workplaceAccidents.length - 1;l >= 0;l--){
-      if(workplaceAccidents[i] === workplaceAccidents[l] && i !== l){
-        workplaceAccidents.splice(i,1)
-        console.log(workplaceAccidents[i] + ' has been pushed to test')
-      } else {console.log(workplaceAccidents[i] + ' has been kept')}
-    }
-  }
-  console.log(workplaceAccidents)
-  console.clear()
-  return workplaceAccidents
-}
+// function removeDuplicates(){
+//   for(let i=workplaceAccidents.length - 1;i >= 0;i--){
+//     console.log(`Iteration ${i}, ${workplaceAccidents.length - 1} iterations remaining` )
+//     console.log(workplaceAccidents[i])
+//     for(let l=workplaceAccidents.length - 1;l >= 0;l--){
+//       if(workplaceAccidents[i] === workplaceAccidents[l] && i !== l){
+//         workplaceAccidents.splice(i,1)
+//         console.log(workplaceAccidents[i] + ' has been pushed to test')
+//       } else {console.log(workplaceAccidents[i] + ' has been kept')}
+//     }
+//   }
+//   console.log(workplaceAccidents)
+//   console.clear()
+//   return workplaceAccidents
+// }
 
 ////////// PROBLEM 3 //////////
 

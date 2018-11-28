@@ -23,7 +23,7 @@ var carDetails = {
 
 //Code Here
 
-
+let {color,make,model,year} = carDetails;
 
 ////////// PROBLEM 2 //////////
 
@@ -35,7 +35,7 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  let {firstName,lastName,title} = obj;
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -55,7 +55,10 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function totalPopulation(ob){
+  let {utah, california, texas, arizona} = ob;
+  return utah + california + texas + arizona
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -69,7 +72,12 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function ingredients(ob){
+  let {carb, fat, protein} = ob;
+  let arr = [];
+  arr.push(carb, fat, protein)
+  return arr
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -87,7 +95,19 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function largeNumbers(ob){
+  let {first, second, third} = ob;
+  let arr = []
+  arr.push(first,second,third)
+  arr = arr.reduce((acc,val) => {
+    if(acc < val){
+      return acc
+    } else {
+      return val
+    }
+  })
+  return arr
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +119,13 @@ function greeting( obj ) {
 
 //Code Here
 
+function numberGroups(ob){
+  let {a,b,c} = ob
+  let arr = []
+  let end;
+  arr.push(a,b,c)
+  end = arr.filter((val) => val.length >= a.length && val.length >= b.length && val.length >= c.length)
+  return end[0]
+}
 
+// console.log(numberGroups())
