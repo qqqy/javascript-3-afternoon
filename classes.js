@@ -198,4 +198,52 @@ class ProgressiveManager{
 
 //Code Here
 
-
+class Machine{
+  constructor(){
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false
+  }
+  makeWidgets(x){
+    console.log(this,`makeWidgets invoked w/ arg  `+ x)
+    this.widgets_made_count += x
+    let y = 0;
+    console.log('current y val: ' + y)
+    let r = 0;
+    if(this.widgets_made_count > 49){
+      y += this.widgets_made_count // if we passed in 57, y is now 57
+      r = y%50 // r is now 7
+      y -= r // y is now 50
+      this.wear_and_tear_count = 0
+      this.wear_and_tear_count += y/50 //wear and tear is now 1
+      console.log('WearAndTear is now ' + this.wear_and_tear_count)
+      y = 0 // y is now 0
+      y += r // y is now 7
+      r = 0 // r is now 0
+      // console.clear()
+      console.log(y,r,this.wear_and_tear_count)
+    }
+  }
+  fixMachine(){
+    this.needs_reboot = true
+  }
+  reboot(){
+    // console.clear()
+    console.log('reboot function invoked')
+    if(this.wear_and_tear_count)
+    return () => {
+      console.log('anonymous subfunction invoked, and wear and tear is ' + this.wear_and_tear_count)
+      if(this.wear_and_tear_count > 10){
+        this.wear_and_tear_count -= 10
+        console.log('wear and tear is greater than 10, but has been reduce to ' + this.wear_and_tear_count)
+        this.needs_reboot = false
+        console.log('needs reboot should be false and is ' + this.needs_reboot)
+      } else {
+        this.wear_and_tear_count = 0
+        console.log('w&t should be 0 and is ' + this.wear_and_tear_count)
+        this.needs_reboot = false
+        console.log('needs reboot should be false and is ' + this.needs_reboot)
+      }
+    }
+  }
+}
