@@ -29,9 +29,21 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-2 > 5
+class Employee{
+  constructor(first_name,last_name,email,age){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+  }
+  makeWidget(){
+    return this.first_name + ' ' + this.last_name + ' Widget'
+  }
+}
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 
 
@@ -58,7 +70,28 @@
 
 //Code Here
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+class Manager{
+  constructor(first_name,last_name,email,age,reports){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+  }
+  makeWidget(){
+    return this.first_name + ' ' + this.last_name + ' Widget'
+  }
+  hire(employee){
+    this.reports.push(employee)
+  }
+  fire(ind){
+    this.reports.splice(ind,1)
+  }
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 ////////// PROBLEM 3 //////////
 
@@ -84,7 +117,61 @@
 
 //Code Here
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+
+// let thresh = {
+//   notAManager:  [1, 'Not a manager'],
+//   barelyManager: [4, 'Barely Manager'],
+//   mostlyManager: [11, 'Mostly Manager'], 
+//   manager: [51, 'Manager'],
+//   managerPlus: [101, 'Manager Plus'],
+//   bestestManager: [x+1, 'Bestest Manager']
+// }
+
+class ProgressiveManager{
+  constructor(first_name,last_name,email,age,reports){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+    this.title = 'Not a manager'
+    this.bonus = 0
+  }
+  makeWidget(){
+    return this.first_name + ' ' + this.last_name + ' Widget'
+  }
+  promote(){
+    let x = this.reports.length
+    let thresh = {
+      notAManager:  [1, 'Not a manager'],
+      barelyManager: [4, 'Barely Manager'],
+      mostlyManager: [11, 'Mostly Manager'], 
+      manager: [51, 'Manager'],
+      managerPlus: [101, 'Manager Plus'],
+      bestestManager: [x+1, 'Bestest Manager']
+    }
+    if(x < 0){return null}
+    for(let key in thresh){
+      if(x<thresh[key][0]){
+        this.title = thresh[key][1]
+        return
+      }
+    }
+  }
+  hire(employee){
+    this.reports.push(employee)
+    this.promote()
+  }
+  fire(ind){
+    this.reports.splice(ind,1)
+    this.bonus += 100
+    this.promote()
+  }
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
